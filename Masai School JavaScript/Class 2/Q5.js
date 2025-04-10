@@ -23,20 +23,27 @@
 // In this example, the loop skips the numbers divisible by 3 and stops once a row contains a number divisible by 7.
 //=========================================================
 
-for(let i=1; i<=10; i++){
-  let bag = "";
-  for(let j=1; j<=i; j++){
-    if(i%3 === 0){
-      continue
-      bag = bag + j
-    }
-    else if(i%7===0){
-      break
-    }
-    else{
-      bag = bag + j
-    }
-  }
-  console.log(bag)
+let rows = prompt("Enter number of rows (1-10):");
 
+for (let i = 1; i <= rows; i++) {
+  let bag = "";
+  let stop = false;
+
+  for (let j = 1; j <= i; j++) {
+    if (j % 3 === 0) {
+      continue; // skip if divisible by 3
+    } 
+    else if (j % 7 === 0) {
+      stop = true; // mark to stop pyramid
+      break;
+    }
+
+    bag += j + " ";
+  }
+
+  console.log(bag.trim());
+
+  if (stop) {
+    break;
+  }
 }
