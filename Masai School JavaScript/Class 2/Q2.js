@@ -33,5 +33,59 @@
 // Output: "Priority Support Access"
 // let person = { role: "admin", experience: 3, active: false, department: "Finance" };
 // Output: "Admin Access Revoked"
-//===============================================================================================
+//======================================================================================================================
 
+let person = {
+  role: "admin",
+  experience: 7,
+  active: true,
+  department: "IT"
+}
+
+if (person.role !== "admin" && person.role !== "manager" && person.role !== "user") {
+  return "Invalid Role";
+}
+
+if (person.role === "admin") {
+  if (person.active === false) {
+    return "Admin Access Revoked";
+  }
+
+  if (person.experience <= 5) {
+    return "Limited Admin Access";
+  }
+
+  if (person.department === "IT") {
+    return "Full IT Admin Access";
+  } else {
+    return "Full General Admin Access";
+  }
+}
+
+if (person.role === "manager") {
+  if (person.active === false) {
+    return "Manager Access Revoked";
+  }
+
+  if (person.experience <= 3) {
+    return "Limited Manager Access";
+  }
+
+  if (person.department === "Sales") {
+    return "Full Sales Manager Access";
+  } else {
+    return "Full Manager Access";
+  }
+}
+
+if (person.role === "user") {
+  if (person.active === false) {
+    return "User Access Revoked";
+  }
+
+  if (person.department === "Support") {
+    return "Priority Support Access";
+  } else {
+    return "User Access";
+  }
+}
